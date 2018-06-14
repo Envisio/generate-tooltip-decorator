@@ -1,0 +1,19 @@
+{
+  "name": "generate-tooltip-decorator",
+  "version": "0.0.1",
+  "main": "./lib/index.js",
+  "repository": "https://github.com/Envisio/generate-tooltip-decorator.git",
+  "author": "Barry Shao <bshao@envisio.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0"
+  },
+  "scripts": {
+    "lint": "eslint ./src --fix",
+    "build": "babel ./src -d ./lib --source-maps"
+  }
+}
