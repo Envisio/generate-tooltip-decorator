@@ -1,7 +1,5 @@
-function generateTooltipDecoratorFunc(args) {
-  const { shared, chartType } = args;
-  // TODO: Boys, enabled shared tooltip by calling generateTooltipDecorator(true)
-  // and set `shared: true` on `tooltip` at the caller level
+const Envisio = Envisio || {};
+Envisio.generateTooltipDecorator = Envisio.generateTooltipDecorator || function ({ shared, chartType }) {
   if (shared !== false) {
     throw new Error('generateTooltipDecorator does not support shared tooltip yet.');
   }
@@ -15,4 +13,4 @@ function generateTooltipDecoratorFunc(args) {
     }
     return `${x}<br />${displayData[index]}`;
   };
-}
+};
