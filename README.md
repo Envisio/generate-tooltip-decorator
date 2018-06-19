@@ -1,1 +1,1 @@
-# highcharts-decorator-generate-tooltip
+DONT USE IT OUT OF ENVISIO
