@@ -6,12 +6,24 @@ export default function ({ shared, chartType }) {
   }
   return function generateTooltipDecorator() {
     const {
-      series: { data, options: { displayData } }, percentage, key, x, point,
+      series: { data, options: { displayData, toolTipComments } }, percentage, key, x, point,
     } = this;
     const index = data.indexOf(point);
     if (chartType === 'pie') {
-      return `${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%`;
+      if (toolTipComments[index] === undefined) {
+        return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%</span>`;
+      }
+      if (toolTipComments[index].length > 175) {
+        return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index].substring(0, 172)}...</span>`;
+      }
+      return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index]}</span>`;
     }
-    return `${x}<br />${displayData[index]}`;
+    if (toolTipComments[index] === undefined) {
+      return `<span>${x}<br />${displayData[index]}</span>`;
+    }
+    if (toolTipComments[index].length > 175) {
+      return `<span>${x}<br />${displayData[index]}<br />${toolTipComments[index].substring(0, 172)}...</span>`;
+    }
+    return `<span>${x}<br />${displayData[index]}<br />${toolTipComments[index]}</span>`;
   };
 }
