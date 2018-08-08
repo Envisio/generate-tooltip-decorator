@@ -13,16 +13,10 @@ export default function ({ shared, chartType }) {
       if (toolTipComments[index] === undefined) {
         return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%</span>`;
       }
-      if (toolTipComments[index].length > 175) {
-        return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index].substring(0, 172)}...</span>`;
-      }
       return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index]}</span>`;
     }
     if (toolTipComments[index] === undefined) {
       return `<span>${x}<br />${displayData[index]}</span>`;
-    }
-    if (toolTipComments[index].length > 175) {
-      return `<span>${x}<br />${displayData[index]}<br />${toolTipComments[index].substring(0, 172)}...</span>`;
     }
     return `<span>${x}<br />${displayData[index]}<br />${toolTipComments[index]}</span>`;
   };
