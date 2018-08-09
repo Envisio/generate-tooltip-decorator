@@ -1,4 +1,4 @@
-const Envisio = Envisio || {};
+const Envisio = Envisio || {}; // eslint-disable-line no-use-before-define
 Envisio.generateTooltipDecorator = Envisio.generateTooltipDecorator || function ({ shared, chartType }) {
   if (shared !== false) {
     throw new Error('generateTooltipDecorator does not support shared tooltip yet.');
@@ -12,16 +12,10 @@ Envisio.generateTooltipDecorator = Envisio.generateTooltipDecorator || function 
       if (toolTipComments[index] === undefined) {
         return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%</span>`;
       }
-      if (toolTipComments[index].length > 175) {
-        return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index].substring(0, 172)}...</span>`;
-      }
       return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index]}</span>`;
     }
     if (toolTipComments[index] === undefined) {
       return `<span>${x}<br />${displayData[index]}</span>`;
-    }
-    if (toolTipComments[index].length > 175) {
-      return `<span>${x}<br />${displayData[index]}<br />${toolTipComments[index].substring(0, 172)}...</span>`;
     }
     return `<span>${x}<br />${displayData[index]}<br />${toolTipComments[index]}</span>`;
   };
