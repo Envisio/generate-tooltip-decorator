@@ -1,6 +1,6 @@
 {
   "name": "generate-tooltip-decorator",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "./lib/index.js",
   "repository": "https://github.com/Envisio/generate-tooltip-decorator.git",
   "author": "Barry Shao <bshao@envisio.com>",
