@@ -6,7 +6,7 @@ export default function ({ shared, chartType }) {
   }
   return function generateTooltipDecorator() {
     const {
-      series: { data, options: { displayData, toolTipComments } }, percentage, key, x, point,
+      series: { data, options: { displayData = [], toolTipComments = [] } }, percentage, key, x, point,
     } = this;
     const index = data.indexOf(point);
     if (chartType === 'pie') {
