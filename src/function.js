@@ -1,4 +1,6 @@
-export default function ({ shared, chartType }) {
+var Envisio = Envisio || {}; // eslint-disable-line no-use-before-define
+
+Envisio.generateTooltipDecorator = Envisio.generateTooltipDecorator || function (_ref) {
   if (shared !== false) {
     throw new Error('generateTooltipDecorator does not support shared tooltip yet.');
   }
