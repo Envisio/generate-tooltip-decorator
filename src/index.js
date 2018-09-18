@@ -8,13 +8,13 @@ export default function ({ shared, chartType }) {
     } = this;
     const index = data.indexOf(point);
     if (chartType === 'pie') {
-      if (toolTipComments[index] === undefined) {
+      if (toolTipComments[index] === '') {
         return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%</span>`;
       }
       return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index].replace(/\n/g, '<br />')}</span>`;
     }
 
-    if (toolTipComments[index] === undefined) {
+    if (toolTipComments[index] === '') {
       return `<span>${x}<br />${displayData[index]}</span>`;
     }
 
@@ -29,6 +29,9 @@ export default function ({ shared, chartType }) {
       comment = comment.replace(regex, '$1')
       comment = comment.match(/([^\s]*\s[^\s]*){0,20}/g).join(' <br /> ');
       return `<span>${x}<br />${displayData[index]}<br />${comment}</span>`;
+    }
+    if (toolTipComments[index].match(/\w+/g).length === 1) {
+      return `<span>${x}<br />${displayData[index]}<br />${toolTipComments[index]}</span>`;
     }
     comment = toolTipComments[index].match(/([^\s]*\s[^\s]*){0,20}/g).join(' <br /> ');
     return `<span>${x}<br />${displayData[index]}<br />${comment}</span>`;
