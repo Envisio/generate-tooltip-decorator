@@ -14,7 +14,7 @@ export default function ({ shared, chartType }) {
       return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index].replace(/\n/g, '<br />')}</span>`;
     }
 
-    if (toolTipComments[index] === '') {
+    if (toolTipComments[index] === undefined) {
       return `<span>${x}<br />${displayData[index]}</span>`;
     }
 
@@ -23,6 +23,7 @@ export default function ({ shared, chartType }) {
       comment = toolTipComments[index].replace(/\n/g, ' <br /> ');
       return `<span>${x}<br />${displayData[index]}<br />${comment}</span>`;
     }
+
     if (toolTipComments[index].includes('rc-widget-tooltip-comment') && toolTipComments[index].includes('<br />')) {
       comment = toolTipComments[index].replace(/<br ?\/?>/g, '');
       const regex = /<span class="rc-widget-tooltip-comment">(.*)<\/span>/;
@@ -30,9 +31,11 @@ export default function ({ shared, chartType }) {
       comment = comment.match(/([^\s]*\s[^\s]*){0,20}/g).join(' <br /> ');
       return `<span>${x}<br />${displayData[index]}<br />${comment}</span>`;
     }
+
     if (toolTipComments[index].match(/\w+/g).length === 1) {
       return `<span>${x}<br />${displayData[index]}<br />${toolTipComments[index]}</span>`;
     }
+
     comment = toolTipComments[index].match(/([^\s]*\s[^\s]*){0,20}/g).join(' <br /> ');
     return `<span>${x}<br />${displayData[index]}<br />${comment}</span>`;
   };
