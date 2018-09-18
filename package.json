@@ -1,6 +1,6 @@
 {
   "name": "generate-tooltip-decorator",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "main": "./lib/index.js",
   "repository": {
     "type": "git",
