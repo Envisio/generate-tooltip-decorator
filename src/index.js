@@ -8,7 +8,7 @@ export default function ({ shared, chartType }) {
     } = this;
     const index = data.indexOf(point);
     if (chartType === 'pie') {
-      if (toolTipComments[index] === '') {
+      if (toolTipComments[index] === undefined) {
         return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%</span>`;
       }
       return `<span>${key}<br />${displayData[index]} - ${percentage.toFixed(2)}%<br />${toolTipComments[index].replace(/\n/g, '<br />')}</span>`;
