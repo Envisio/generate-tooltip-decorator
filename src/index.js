@@ -27,7 +27,7 @@ export default function ({ shared, chartType }) {
     if (toolTipComments[index].includes('rc-widget-tooltip-comment') && toolTipComments[index].includes('<br />')) {
       comment = toolTipComments[index].replace(/<br ?\/?>/g, '');
       const regex = /<span class="rc-widget-tooltip-comment">(.*)<\/span>/;
-      comment = comment.replace(regex, '$1')
+      comment = comment.replace(regex, '$1');
       comment = comment.match(/([^\s]*\s[^\s]*){0,20}/g).join(' <br /> ');
       return `<span>${x}<br />${displayData[index]}<br />${comment}</span>`;
     }
