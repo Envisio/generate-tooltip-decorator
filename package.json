@@ -1,8 +1,11 @@
 {
   "name": "generate-tooltip-decorator",
-  "version": "0.0.7",
+  "version": "0.0.15",
   "main": "./lib/index.js",
-  "repository": "https://github.com/Envisio/generate-tooltip-decorator.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Envisio/generate-tooltip-decorator.git"
+  },
   "author": "Barry Shao <bshao@envisio.com>",
   "license": "MIT",
   "devDependencies": {
@@ -15,5 +18,17 @@
   "scripts": {
     "lint": "eslint ./src --fix",
     "build": "babel ./src -d ./lib --source-maps"
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1"
+  },
+  "description": "DO NOT USE IT OUT OF ENVISIO",
+  "bugs": {
+    "url": "https://github.com/Envisio/generate-tooltip-decorator/issues"
+  },
+  "homepage": "https://github.com/Envisio/generate-tooltip-decorator#readme",
+  "directories": {
+    "lib": "lib"
   }
 }
